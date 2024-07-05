@@ -1,4 +1,5 @@
 import React from 'react'
+// import MyApp from './app';
 
 const Home = () => {
   return (
@@ -8,5 +9,4 @@ const Home = () => {
   )
 }
 
-export default Home
-HOME
+export default Home;
