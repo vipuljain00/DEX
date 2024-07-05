@@ -1,0 +1,15 @@
+.NavBar{
+    border: solid 1px white;
+}
+.NavBar_Box{
+    border: solid 1px rgb(36, 131, 226);
+}
+.NavBar_Box_left{
+    border: solid 1px rgb(90, 226, 62);
+}
+.NavBar_Box_middle{
+    border: solid 1px rgb(229, 213, 46);
+}
+.NavBar_Box_right{
+    border: solid 1px rgb(90, 226, 62);
+}
