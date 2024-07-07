@@ -12,11 +12,11 @@ const HeroSection = ({accounts, tokenData}) => {
 
   const [tokenOne, setTokenOne] = useState({
     name: "",
-    image: "";
+    image: ""
   })
   const [tokenTwo, setTokenTwo] = useState({
     name: "",
-    image: "";
+    image: ""
   })
 
   return (
@@ -30,7 +30,31 @@ const HeroSection = ({accounts, tokenData}) => {
           </div>
         </div>
 
-        <div className={style.HeroSection_Box_}></div>
+        <div className={style.HeroSection_Box_input}>
+          <input type='text' placeholder='0'/>
+          <button onClick={()=>openToken(true)}>
+            <Image src={tokenOne.image || images.etherlogo} width={20} height={20} alt='ether'/>
+            {tokenOne.name || "ETH"}
+            <small>4526</small>
+          </button>
+        </div>
+
+        <div className={style.HeroSection_Box_input}>
+          <input type='text' placeholder='0'/>
+          <button onClick={()=>openToken(true)}>
+            <Image src={tokenTwo.image || images.etherlogo} width={20} height={20} alt='ether'/>
+            {tokenTwo.name || "ETH"}
+            <small>4526</small>
+          </button>
+        </div>
+
+        {accounts ? (
+          <button className={style.HeroSection_Box_btn}>Swap</button>
+        ) : (
+          <button className={style.HeroSection_Box_btn}>Connect Wallet</button>
+        )}
+
+        {continue...1:00:10}
       </div>
     </div>
   )
