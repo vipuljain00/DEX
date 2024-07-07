@@ -1,6 +1,6 @@
 .NavBar{
     /* border: solid 1px white; */
-    width:95%;
+    width:95vw;
     margin: 1.1rem auto;
 }
 .NavBar_Box{
@@ -32,7 +32,7 @@
     /* border: solid 1px rgb(229, 213, 46); */
     background-color: #1e1e1e;
     width: 80%;
-    padding: 1rem 1.5rem;
+    padding: 0.8rem 1.5rem;
     border-radius: 0.5rem;
     margin: 0 auto;
 }
@@ -98,12 +98,17 @@
         grid-template-columns: .5fr 1fr;
     }
     .NavBar_Box_middle{
-        border: solid 1px rgb(229, 213, 46);
+        /* border: solid 1px rgb(229, 213, 46); */
         display: none;
     }
     .NavBar_Box_left_menu{
         display: none;
     }
+    .NavBar_Box_right_box{
+        display: none;
+    }
+}
+@media only screen and (max-width: 70em){
     .NavBar_Box_right_box{
         display: none;
     }

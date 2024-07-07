@@ -1,0 +1,67 @@
+.TokenList{
+    background-color: #1e1e1e;
+    border-radius: .5rem;
+    padding: 1rem;
+    width: 20rem;
+    margin-top: 2rem;
+    position: absolute;
+    /* margin-right: 5%; */
+    /* margin-left: 70%; */
+    margin-left: 66.4rem;
+}
+.TokenList_title{
+    width: 100%;
+    /* border: solid 3px yellow; */
+    /* text-align: center; */
+    padding: .2rem 1rem ;
+    line-height: 0;
+    font-weight: 800;
+    color: #6690ff;
+    font-size: .8rem;
+    border-radius: .5rem;
+}
+.TokenList_close{
+    position: absolute;
+    right: -1rem;
+    top: -2rem;
+    cursor: pointer;
+    z-index: 1111111111111;
+}
+.TokenList_box{
+    position: relative;
+    border-bottom: solid 1px #0badf853;
+    padding: 0 .5rem;
+    cursor: pointer;
+    /* width: 100%; */
+}
+.TokenList_box_info{
+    /* border: solid 3px yellow; */
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 1rem;
+    align-items: center;
+}
+.TokenList_box_info p span{
+    font-weight: 800;
+    color: #6690ff;
+    margin-right: .5rem;
+}
+.TokenList_box_info_symbol{
+    background-color: #6690ff;
+    border-radius: .5rem;
+    padding: .5rem;
+    text-align: center;
+    color: #1e1e1e;
+    font-weight: 550;
+}
+
+@media only screen and (max-width: 35em){
+    .TokenList{
+        /* margin: 5% 5%; */
+        margin-left: 0%;
+        width: 90%;
+    }
+    .TokenList_close{
+        right: .5rem;
+    }
+}

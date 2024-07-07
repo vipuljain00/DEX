@@ -1,10 +1,9 @@
-import React from 'react'
-// import MyApp from './app';
-
+import React, {useState, useContext, useEffect} from 'react'
+import { HeroSection } from '@/Components';
 const Home = () => {
   return (
     <div>
-      HOME
+      <HeroSection accounts="hey" tokenData="Data" />
     </div>
   )
 }

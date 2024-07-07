@@ -79,7 +79,7 @@ const NavBar = () => {
             <p>Network name</p>
           </div>
 
-          <button onClick={()=>{}}>Address</button>
+          <button onClick={()=>{setOpenModel(true)}}>Address</button>
               
           {openModel && (
              <Model setOpenModel = {setOpenModel} connectWallet = "Connect" />
