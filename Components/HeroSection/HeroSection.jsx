@@ -27,7 +27,7 @@ const HeroSection = ({accounts, tokenData}) => {
           <p>Swap</p>
           <div className={style.HeroSection_Box_heading_img}>
             <Image src={images.close} alt='close' width={50} height={50} onClick={()=>setOpenSetting(true)} />
-          </div>
+          </div>            
         </div>
 
         <div className={style.HeroSection_Box_input}>
@@ -48,14 +48,34 @@ const HeroSection = ({accounts, tokenData}) => {
           </button>
         </div>
 
+
         {accounts ? (
-          <button className={style.HeroSection_Box_btn}>Swap</button>
-        ) : (
           <button className={style.HeroSection_Box_btn}>Connect Wallet</button>
+        ) : (
+          <button className={style.HeroSection_Box_btn}>Swap</button>
         )}
 
-        {continue...1:00:10}
       </div>
+
+        {openSetting && (
+          <Token openSetting = {openSetting} />
+        )}
+
+        {openToken && (
+          <SearchToken 
+          openToken = {setOpenToken} 
+          tokens = {setTokenOne} 
+          tokenData = {tokenData}/>
+        )}
+
+        {openToken && (
+          <SearchToken 
+          openToken = {setOpenTokensTwo} 
+          tokens = {setTokenTwo} 
+          tokenData = {tokenData}/>
+        )}
+
+
     </div>
   )
 }

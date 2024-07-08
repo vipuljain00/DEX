@@ -1,3 +1,87 @@
 .HeroSection{
-    border: solid 2px yellow;
+    /* border: solid 2px yellow; */
+    width: 90%;
+    margin: 2rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.HeroSection_Box{
+    /* border: solid 2px #6690ff; */
+    margin-top: 6rem;
+    background-color: #1e1e1e;
+    border-radius: .5rem;
+    padding: 1rem;
+    width: 30rem;
+}
+.HeroSection_Box_heading{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.HeroSection_Box_heading p{
+    font-size: 1.2rem;
+    padding-left: 1rem;
+    font-weight: 500;
+}
+.HeroSection_Box_input{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: solid 1px #6690ff;
+    border-radius: .5rem;
+    margin-top: 1rem;
+    /* margin-bottom: 1.5rem; */
+    padding-left: 2rem;
+}
+.HeroSection_Box_input input{
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    color: #6690ff;
+    font-size: 1.15rem;
+}
+.HeroSection_Box_input button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-radius: .5rem;
+    line-height: 0%;
+    background-color: #6690ff;
+    padding: 1rem;
+    border: 0;
+    outline: 0;
+    font-size: 1.1rem;
+    color: #1e1e1e;
+    cursor: pointer;
+}
+.HeroSection_Box_btn{
+    margin-top: 1.5rem ;
+    border-radius: .5rem;
+    background-color: #6690ff;
+    color: #1e1e1e;
+    font-weight: 700;
+    font-size: 1.15rem;
+    border: 0;
+    outline: 0;
+    width: 100%;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 35em){
+    .HeroSection{
+        width: 95%;
+    }
+    .HeroSection_Box{
+        width: 95%;
+    }
+    .HeroSection_Box_input input{
+        width: 50%;
+    }
+    .HeroSection_Box_input button{
+        width: 50%;
+    }
 }
