@@ -2,14 +2,14 @@
     /* border: solid 2px yellow; */
     width: 90%;
     margin: 2rem auto;
+    padding: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 .HeroSection_Box{
-    /* border: solid 2px #6690ff; */
-    margin-top: 6rem;
+    border: solid 2px #6690ff;
+    margin-top: 5rem;
     background-color: #1e1e1e;
     border-radius: .5rem;
     padding: 1rem;
@@ -73,7 +73,7 @@
 
 @media only screen and (max-width: 35em){
     .HeroSection{
-        width: 95%;
+        width: 85%;
     }
     .HeroSection_Box{
         width: 95%;

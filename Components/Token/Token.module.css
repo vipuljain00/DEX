@@ -1,0 +1,82 @@
+.Token{
+    /* border: solid 2px yellow; */
+    position: absolute;
+    width: 30rem;
+    height: 25rem;
+    margin: 0 auto;
+    background-color: #1e1e1e;
+    padding: 0rem 1.5rem;
+    border-radius: .5rem;
+}
+.Token_Box_heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: solid 1px white; */
+    /* padding-left: 1rem; */
+}
+.Token_Box_heading h4{
+    font-size: large;
+}
+.Token_Box_para{
+    /* border: solid 1px white; */
+    line-height: 0;
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+    /* padding-left: 1rem; */
+}
+.Token_Box_input{
+    /* border: solid 1px white; */
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.6rem;
+}
+.Token_Box_input button{
+    border: 0;
+    outline: 0;
+    border-radius: .5rem;
+    padding: .5rem 1rem;
+    background-color: #6690ff;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+.Token_Box_input input{
+    border: 1px solid #6690ff;
+    outline: 0;
+    padding: .5rem 1rem;
+    background-color: #1e1e1e;
+    border-radius: .5rem;
+    width: 80%;
+    text-align: end;
+    color: #6690ff;
+}
+.Token_Box h2{
+    /* border: solid 1px white; */
+    margin-top: 2.2rem;
+    line-height: 0;
+    font-size: 1.3rem;
+}
+.Token_Box_toggle{
+    /* border: solid 1px white; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1.5rem 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media only screen and (max-width: 35em) {
+    .Token{
+        width: 85%;
+    }
+    .Token_Box_input input{
+        width: 50%;
+    }
+    .Token_Box_input button{
+        width: 50%;
+    }
+}

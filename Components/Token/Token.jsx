@@ -15,7 +15,7 @@ const Token = ({setOpenSetting}) => {
             <Image src={images.close} alt='close' width={50} height={50} onClick={()=>setOpenSetting(false)} />
         </div>
 
-        <p className={Token_Box_para}>
+        <p className={style.Token_Box_para}>
             Slippage Tolerance{""}
             <Image src={images.lock} alt='img' width={20} height={20} />
         </p>
@@ -25,7 +25,23 @@ const Token = ({setOpenSetting}) => {
             <input type='text' placeholder='0.10%' />
         </div>
 
-        
+        <p className={style.Token_Box_para}>
+            Slippage Tolerance{""}
+            <Image src={images.lock} alt='img' width={20} height={20} />
+        </p>
+
+        <div className={style.Token_Box_input}>
+            <input type='text' placeholder='20' />
+            <button>minutes</button>
+        </div>
+
+        <h2>Interface Settings</h2>
+
+        <div className={style.Token_Box_toggle}>
+            <p className={style.Token_Box_para}>Transaction deadline</p>
+            <Toggle />
+        </div>
+
       </div>
 
     </div>
