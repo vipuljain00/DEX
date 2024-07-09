@@ -1,31 +1,30 @@
+.TokenList_Holder{
+    /* border: solid 1px yellow; */
+    display: flex;
+    justify-content: end;
+}
 .TokenList{
+    /* border: solid 1px yellow; */
     background-color: #1e1e1e;
     border-radius: .5rem;
     padding: 1rem;
     width: 20rem;
     margin-top: 2rem;
-    position: absolute;
+    /* position: absolute; */
     /* margin-right: 5%; */
-    /* margin-left: 70%; */
-    margin-left: 66.4rem;
+    /* margin-left: 75%; */
+    /* margin-left: 66.4rem; */
 }
 .TokenList_title{
-    width: 100%;
     /* border: solid 3px yellow; */
-    /* text-align: center; */
-    padding: .2rem 1rem ;
+    padding: .2rem auto ;
     line-height: 0;
     font-weight: 800;
     color: #6690ff;
     font-size: .8rem;
-    border-radius: .5rem;
-}
-.TokenList_close{
-    position: absolute;
-    right: -1rem;
-    top: -2rem;
-    cursor: pointer;
-    z-index: 1111111111111;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
 }
 .TokenList_box{
     position: relative;

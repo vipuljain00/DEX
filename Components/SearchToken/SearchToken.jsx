@@ -13,19 +13,19 @@ const SearchToken = ({openToken, tokens, tokenData}) => {
     },
     {
       img: images.ether,
-      name: "ETH"
+      name: "DAI"
     },
     {
       img: images.ether,
-      name: "ETH"
+      name: "USDT"
     },
     {
       img: images.ether,
-      name: "ETH"
+      name: "WBTC"
     },
     {
       img: images.ether,
-      name: "ETH"
+      name: "WETH"
     }
   ]
 
@@ -54,7 +54,7 @@ const SearchToken = ({openToken, tokens, tokenData}) => {
               onClick={()=>(setActive(i + 1), tokens({ name: ele.name, img: ele.img })) }>
 
                 <Image src={ele.img || images.ether} alt='image' width={30} height={30} />
-                <p>{ele.name}</p>
+                {ele.name}
 
             </span>
           ))}

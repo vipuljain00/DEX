@@ -61,27 +61,26 @@
     border-radius: .5rem;
     background-color: #212324;
     margin-top: 1rem;
-    /* padding: .5rem auto; */
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    flex-wrap: wrap;
+    padding: .5rem 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
 }
 .SearchToken_Box_tokens span{
     /* border: solid 1px yellow; */
-    margin: 1rem;
-    border-radius: .5rem;
-    background-color: #6690ff;
-    padding: .3rem;
+    border-radius: 0.8rem;
+    border: solid 1px #6690ff;
+    padding: .5rem;
+    margin: .3rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 5rem;
+    gap: .7rem;
+    width: 5.7rem;
     line-height: 0;
     cursor: pointer;
 }
-.SearchToken_Box_tokens p{
-    padding-right: .55rem;
+.active{
+    background-color: #6690ff;
     color: #1e1e1e;
 }
 
@@ -92,5 +91,9 @@
     }
     .SearchToken_Box{
         width: 100%;
+    }
+    .SearchToken_Box_tokens{
+        display: flex;
+        flex-wrap: wrap;
     }
 }

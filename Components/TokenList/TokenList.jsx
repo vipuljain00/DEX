@@ -2,19 +2,22 @@ import React from 'react'
 import images from '../../assets'
 import style from './TokenList.module.css'
 import Image from 'next/image'
+import { IMAGES_MANIFEST } from 'next/dist/shared/lib/constants'
 
 const TokenList = ({tokenData, setOpenTokenBox}) => {
 
   const Data = [1, 2, 3, 4, 5, 6, 7]
 
   return (
+    <div className={style.TokenList_Holder}>
     <div className={style.TokenList}>
-        <p className={style.TokenList_close} onClick={()=>setOpenTokenBox(false)}>
-          <Image src={images.close} alt='Close' width={50} height={50}/>
-        </p>
+        
         <div className={style.TokenList_title}>
-          <h2>Your Token List</h2>  
+          <h2>Your Token List</h2>
+          <Image src={images.close} alt='close' width={50} height={50} onClick={()=>setOpenTokenBox(false)}/>  
         </div>
+
+
         {Data.map((ele, i)=>(
           <div className={style.TokenList_box}>
             <div className={style.TokenList_box_info}>
@@ -23,6 +26,7 @@ const TokenList = ({tokenData, setOpenTokenBox}) => {
             </div>
           </div>
         ))}
+    </div>
     </div>
   )
 }
