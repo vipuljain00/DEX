@@ -1,0 +1,95 @@
+.SearchToken{
+    /* border: solid 1px yellow; */
+    border-radius: .5rem;
+    position: absolute;
+    width: 90%;
+    padding-top: 5.25rem;
+    text-align: ;
+    display: flex;
+    justify-content: center;
+}
+.SearchToken_Box{
+    /* border: solid 1px yellow; */
+    border-radius: .5rem;
+    /* position: absolute; */
+    width: 30.5rem;
+    height: 20rem;
+    background-color: #1e1e1e;
+    padding: 1rem 1rem 1rem 1rem;
+}
+.SearchToken_Box_heading{
+    /* border: solid 1px yellow; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5rem auto;
+}
+.SearchToken_Box_heading  h4{
+    /* border: solid 1px yellow; */
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 0;
+}
+.SearchToken_Box_heading Image{
+    cursor: pointer;
+}
+.SearchToken_Box_search{
+    border: solid 1px #6690ff;
+    border-radius: .5rem;
+    margin: 1rem auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.SearchToken_Box_search_img{
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+}
+.SearchToken_Box_search input{
+    background-color: #1e1e1e;
+    border: 0;
+    border-radius: .5rem;
+    outline: 0;
+    width: 80%;
+    padding: 1rem;
+    color: #6690ff;
+}
+.SearchToken_Box_tokens{
+    /* border: solid 1px yellow; */
+    border-radius: .5rem;
+    background-color: #212324;
+    margin-top: 1rem;
+    /* padding: .5rem auto; */
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+.SearchToken_Box_tokens span{
+    /* border: solid 1px yellow; */
+    margin: 1rem;
+    border-radius: .5rem;
+    background-color: #6690ff;
+    padding: .3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 5rem;
+    line-height: 0;
+    cursor: pointer;
+}
+.SearchToken_Box_tokens p{
+    padding-right: .55rem;
+    color: #1e1e1e;
+}
+
+@media only screen and (max-width: 35em) {
+    .SearchToken{
+        /* border: solid 1px yellow; */
+        width: 85%;
+    }
+    .SearchToken_Box{
+        width: 100%;
+    }
+}
