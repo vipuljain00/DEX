@@ -42,7 +42,7 @@ const SearchToken = ({openToken, tokens, tokenData}) => {
           <div className={style.SearchToken_Box_search_img}>
             <Image src={images.search} alt='search' width={20} height={20} />
           </div>
-          <input type='text' placeholder='Search Name or Paste the Address'/>
+          <input type='text' placeholder='Search Name or Paste token Address'/>
         </div>
 
         <div className={style.SearchToken_Box_tokens}>
