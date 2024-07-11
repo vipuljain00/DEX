@@ -46,11 +46,12 @@ contract SingleSwapToken {
             sqrtPriceLimitX96: ;
         })
 
-        swapRouter.exactOutputSingle(params)
+        amountIn = swapRouter.exactOutputSingle(params)
 
         if(amountIn < amountInMaximum){
             TransferHelper.safeApprove(WETH9_address, addresss(swapRouter), 0);
-            TransferHelper.safeTransferFrom(WETH9_address, msg.sender, amountInMaximum - amountIn)
+            TransferHelper.safeTransferFrom(WETH9_address, address(this), msg.sender, amountInMaximum - amountIn)
         }
     }
+
 }
