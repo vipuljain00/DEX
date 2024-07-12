@@ -23,34 +23,35 @@ contract SingleSwapToken {
             fee: 3000,    //at production level it should never be hardCoded
             recipient: msg.sender,
             deadline: block.timestamp,
+            amountIn: amountIn,
             amountOutMinimum: 0,
             sqrtPriceLimitX96: 0
         });  
 
-        amountOut = SwapRouter.exactInputSingle(params);
+        amountOut = swapRouter.exactInputSingle(params);
     }
 
     function swapExactInputString(uint amountOut, uint amountInMaximum) external returns(uint amountIn){
 
-        TransferHelper.safeTransferFrom(WETH9_address, msg.sender, address(this), amountInMaximum)
-        TransferHelper.safeApprove(WETH9_address, address(this), amountInMaximum)
+        TransferHelper.safeTransferFrom(WETH9_address, msg.sender, address(this), amountInMaximum);
+        TransferHelper.safeApprove(WETH9_address, address(this), amountInMaximum);
 
         ISwapRouter.ExactOutputSingleParams memory params = ISwapRouter.ExactOutputSingleParams({
-            tokenIn: WETH9_address;
-            tokenOut: DAI_address;
-            recipient: msg.sender;
-            fee: 3000;
-            deadline: block.timestamp;
-            amountOut: amountOut;
-            amountInMaximum: amountInMaximum;
-            sqrtPriceLimitX96: ;
-        })
+            tokenIn: WETH9_address,
+            tokenOut: DAI_address,
+            recipient: msg.sender,
+            fee: 3000,
+            deadline: block.timestamp,
+            amountOut: amountOut,
+            amountInMaximum: amountInMaximum,
+            sqrtPriceLimitX96: 0
+        });
 
-        amountIn = swapRouter.exactOutputSingle(params)
+        amountIn = swapRouter.exactOutputSingle(params);
 
         if(amountIn < amountInMaximum){
-            TransferHelper.safeApprove(WETH9_address, addresss(swapRouter), 0);
-            TransferHelper.safeTransferFrom(WETH9_address, address(this), msg.sender, amountInMaximum - amountIn)
+            TransferHelper.safeApprove(WETH9_address, address(swapRouter), 0);
+            TransferHelper.safeTransferFrom(WETH9_address, address(this), msg.sender, amountInMaximum - amountIn);
         }
     }
 
