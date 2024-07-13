@@ -25,28 +25,28 @@ describe("SingleSwapToken", () => {
 
     });
 
-    // it("swapExactInputSingle", async () => {
-    //     try {
-    //         console.log(`SingleSwapToken contract is deployed at ${await singleSwapToken.target}`);
-    //         console.log(`WETH : ${weth.target}`);
-    //         console.log(`DAI : ${dai.target}`);
-    //         console.log(`USDC : ${usdc.target}`);
-    //         console.log(`ACCOUNTS[0] : ${accounts[0].address}`);
+    it("swapExactInputSingle", async () => {
+        try {
+            console.log(`SingleSwapToken contract is deployed at ${await singleSwapToken.target}`);
+            console.log(`WETH : ${weth.target}`);
+            console.log(`DAI : ${dai.target}`);
+            console.log(`USDC : ${usdc.target}`);
+            console.log(`ACCOUNTS[0] : ${accounts[0].address}`);
 
 
-    //         const amountIn = BigInt(10 ** 18);
-    //         // Deposit and approve WETH
-    //         await weth.deposit({ value: amountIn });
-    //         await weth.approve(singleSwapToken.target, amountIn);
-    //         // Perform the swap
-    //         await singleSwapToken.swapExactInputSingle(amountIn);
-    //         console.log(`Dai balance : ${await dai.balanceOf(accounts[0].address)}`);
+            const amountIn = BigInt(10 ** 18);
+            // Deposit and approve WETH
+            await weth.deposit({ value: amountIn });
+            await weth.approve(singleSwapToken.target, amountIn);
+            // Perform the swap
+            await singleSwapToken.swapExactInputSingle(amountIn);
+            console.log(`Dai balance : ${await dai.balanceOf(accounts[0].address)}`);
 
-    //     } catch (error) {
-    //         console.error("Error in it block:", error);
-    //         throw error; // Ensure test fails if it block fails
-    //     }
-    // });
+        } catch (error) {
+            console.error("Error in it block:", error);
+            throw error; // Ensure test fails if it block fails
+        }
+    });
 
     it("swapExactOutputSingle", async()=>{
         try{
