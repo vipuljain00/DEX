@@ -12,7 +12,7 @@ contract SingleSwapToken {
     address public constant WETH9_address = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;
     address public constant USDC_address = 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48;
 
-    function swapExactInputString(uint amountIn) external returns(uint amountOut){
+    function swapExactInputSingle(uint amountIn) external returns(uint amountOut){
 
         TransferHelper.safeTransferFrom(WETH9_address, msg.sender, address(this), amountIn);
         TransferHelper.safeApprove(WETH9_address, address(swapRouter), amountIn);
@@ -31,10 +31,10 @@ contract SingleSwapToken {
         amountOut = swapRouter.exactInputSingle(params);
     }
 
-    function swapExactInputString(uint amountOut, uint amountInMaximum) external returns(uint amountIn){
+    function swapExactOutputSingle(uint amountOut, uint amountInMaximum) external returns(uint amountIn){
 
         TransferHelper.safeTransferFrom(WETH9_address, msg.sender, address(this), amountInMaximum);
-        TransferHelper.safeApprove(WETH9_address, address(this), amountInMaximum);
+        TransferHelper.safeApprove(WETH9_address, address(swapRouter), amountInMaximum);
 
         ISwapRouter.ExactOutputSingleParams memory params = ISwapRouter.ExactOutputSingleParams({
             tokenIn: WETH9_address,
@@ -48,7 +48,7 @@ contract SingleSwapToken {
         });
 
         amountIn = swapRouter.exactOutputSingle(params);
-
+        //Handling Excess Input Amount
         if(amountIn < amountInMaximum){
             TransferHelper.safeApprove(WETH9_address, address(swapRouter), 0);
             TransferHelper.safeTransferFrom(WETH9_address, address(this), msg.sender, amountInMaximum - amountIn);
