@@ -28,11 +28,11 @@ describe("SwapMultiHop", () => {
     it("swapExactInputMultihop", async () => {
         try {
             
-            // console.log(`SwapMultiHop contract is deployed at ${await swapMultiHop.target}`);
-            // console.log(`WETH : ${weth.target}`);
-            // console.log(`DAI : ${dai.target}`);
-            // console.log(`USDC : ${usdc.target}`);
-            // console.log(`ACCOUNTS[0] : ${accounts[0].address}`);
+            console.log(`SwapMultiHop contract is deployed at ${await swapMultiHop.target}`);
+            console.log(`WETH : ${weth.target}`);
+            console.log(`DAI : ${dai.target}`);
+            console.log(`USDC : ${usdc.target}`);
+            console.log(`ACCOUNTS[0] : ${accounts[0].address}`);
 
 
             const amountIn = BigInt(10 ** 18);
@@ -49,25 +49,25 @@ describe("SwapMultiHop", () => {
         }
     });
 
-    // it("swapExactOutputMultihop", async()=>{
-    //     try{
-    //         const wethAmountInMAx = BigInt(10**18);
-    //         const daiAmountOut = BigInt(100 * 10 ** 18);
+    it("swapExactOutputMultihop", async()=>{
+        try{
+            const wethAmountInMAx = BigInt(10**18);
+            const daiAmountOut = BigInt(100 * 10 ** 18);
 
-    //         // Deposit and approve WETH
-    //         await weth.deposit({value: wethAmountInMAx});                   //function of WETH contract Signer deposits ETH and gets WETH in return
-    //         await weth.approve(swapMultiHop.target, wethAmountInMAx);
-    //         console.log(`Previous WETH balance : ${await weth.balanceOf(accounts[0].address)}`);
+            // Deposit and approve WETH
+            await weth.deposit({value: wethAmountInMAx});                   //function of WETH contract Signer deposits ETH and gets WETH in return
+            await weth.approve(swapMultiHop.target, wethAmountInMAx);
+            console.log(`Previous WETH balance : ${await weth.balanceOf(accounts[0].address)}`);
 
-    //         //SWAP
-    //         await swapMultiHop.connect(accounts[1]).swapExactOutputMultihop(daiAmountOut, wethAmountInMAx);
-    //         console.log(`DAI BALANCE : ${await dai.balanceOf(accounts[0].address)}`);
-    //         console.log(`Remaining WETH balance : ${await weth.balanceOf(accounts[0].address)}`);
+            //SWAP
+            await swapMultiHop.swapExactOutputMultihop(daiAmountOut, wethAmountInMAx);
+            console.log(`DAI BALANCE : ${await dai.balanceOf(accounts[0].address)}`);
+            console.log(`Remaining WETH balance : ${await weth.balanceOf(accounts[0].address)}`);
 
-    //     } catch(error){
-    //         console.error("Error in 2nd it block:", error);
-    //         throw error;
-    //     }
-    // })
+        } catch(error){
+            console.error("Error in 2nd it block:", error);
+            throw error;
+        }
+    });
 
 });

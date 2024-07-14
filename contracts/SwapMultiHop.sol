@@ -19,7 +19,7 @@ contract SwapMultiHop {
         TransferHelper.safeApprove(WETH9_address, address(swapRouter), amountIn);
 
         ISwapRouter.ExactInputParams memory params = ISwapRouter.ExactInputParams({
-            path: abi.encodePacked(WETH9_address, uint224(3000), USDC_address, uint224(100), DAI_address),
+            path: abi.encodePacked(WETH9_address, uint24(3000), USDC_address, uint24(100), DAI_address),
             recipient: msg.sender,
             deadline: block.timestamp,
             amountIn: amountIn,
@@ -35,7 +35,7 @@ contract SwapMultiHop {
         TransferHelper.safeApprove(WETH9_address, address(swapRouter), amounInMaximum);
 
         ISwapRouter.ExactOutputParams memory params = ISwapRouter.ExactOutputParams({
-            path: abi.encodePacked( DAI_address, uint224(100), USDC_address, uint224(3000), WETH9_address),
+            path: abi.encodePacked( DAI_address, uint24(100), USDC_address, uint24(3000), WETH9_address),
             recipient: msg.sender,
             deadline: block.timestamp,
             amountOut: amounOut,
