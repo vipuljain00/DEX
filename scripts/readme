@@ -3,3 +3,16 @@ LIF token deployed to 0x2ce1F0e20C1f69E9d9AEA83b25F0cEB69e2AA2b5
 Single_Swap deployed to 0xE5b6F5e695BA6E4aeD92B68c4CC8Df1160D69A81
 Multihop_Swap deployed to 0x9bE634797af98cB560DB23260b5f7C6e98AcCAcf
 
+// "dependencies": {
+//     "@openzeppelin/contracts": "^5.0.2",
+//     "@uniswap/v3-periphery": "^1.4.4",
+//     "ethers": "^5.7.2",
+//     "next": "14.2.4",
+//     "react": "^18",
+//     "react-dom": "^18",
+//     "web3modal": "^1.9.12"
+//   },
+//   "devDependencies": {
+//     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+//     "hardhat": "^2.22.6"
+//   }

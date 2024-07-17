@@ -59,7 +59,7 @@ export const connectingWithVipToken = async()=>{
         
         const web3modal = new Web3Modal();
         const connection = await web3modal.connect();
-        const provider = new ethers.provider.Web3Provider(connection);
+        const provider = new ethers.BrowserProvider(connection);
         const signer = provider.getSigner();
         const contract = fetchVIPContract(signer);
 
@@ -81,7 +81,7 @@ export const connectingWithLifeToken = async()=>{
         
         const web3modal = new Web3Modal();                                              //Initializes a new instance of Web3Modal
         const connection = await web3modal.connect();                                   //opens a modal dialog that allows the user to select and connect their wallet - upon connection, it returns a provider object
-        const provider = new ethers.provider.Web3Provider(connection);                  // Converts the connection provider into an ethers.js provider -  allows interaction with the Ethereum blockchain through the ethers.js library
+        const provider = new ethers.BrowserProvider(connection);                  // Converts the connection provider into an ethers.js provider -  allows interaction with the Ethereum blockchain through the ethers.js library
         const signer = provider.getSigner();                                            //in the ethers.js library represents an Ethereum account that can sign transactions and messages - used to send transactions with executing functions to the Ethereum network
         const contract = fetchLIFEContract(signer);                                     //represents a deployed smart contract on the Ethereum blockchain -  provides methods to interact with the contract’s functions
 
@@ -103,7 +103,7 @@ export const connectingWithSingleSwap = async()=>{
         
         const web3modal = new Web3Modal();                                             
         const connection = await web3modal.connect();                                
-        const provider = new ethers.provider.Web3Provider(connection);                 
+        const provider = new ethers.BrowserProvider(connection);                 
         const signer = provider.getSigner();                                           
         const contract = fetchSingleSwapContract(signer);                                  
 
@@ -114,25 +114,25 @@ export const connectingWithSingleSwap = async()=>{
 
 
 
-// //SwapMultiHop Fetching
-// export const fetchMultiHopContract = (signerorProvider)=>{
-//     return new ethers.Contract(SwapMultiHopAddress, SwapMultiHopABI, signerorProvider);
-// } 
+//SwapMultiHop Fetching
+export const fetchMultiHopContract = (signerorProvider)=>{
+    return new ethers.Contract(SwapMultiHopAddress, SwapMultiHopABI, signerorProvider);
+} 
 
-// //Connecting with LIFE Token contract
-// export const connectingWithMultiHop = async()=>{
-//     try {
+//Connecting with LIFE Token contract
+export const connectingWithMultiHop = async()=>{
+    try {
         
-//         const web3modal = new Web3Modal();                                             
-//         const connection = await web3modal.connect();                                
-//         const provider = new ethers.provider.Web3Provider(connection);                 
-//         const signer = provider.getSigner();                                           
-//         const contract = fetchMultiHopContract(signer);                                  
+        const web3modal = new Web3Modal();                                             
+        const connection = await web3modal.connect();                                
+        const provider = new ethers.BrowserProvider(connection);                 
+        const signer = provider.getSigner();                                           
+        const contract = fetchMultiHopContract(signer);                                  
 
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
 
@@ -147,7 +147,7 @@ export const connectingWithIWETH = async()=>{
         
         const web3modal = new Web3Modal();                                             
         const connection = await web3modal.connect();                                
-        const provider = new ethers.provider.Web3Provider(connection);                 
+        const provider = new ethers.BrowserProvider(connection);                 
         const signer = provider.getSigner();                                           
         const contract = fetchIWETHContract(signer);                                  
 
@@ -170,7 +170,7 @@ export const connectingWithDAI = async()=>{
         
         const web3modal = new Web3Modal();                                             
         const connection = await web3modal.connect();                                
-        const provider = new ethers.provider.Web3Provider(connection);                 
+        const provider = new ethers.BrowserProvider(connection);                 
         const signer = provider.getSigner();                                           
         const contract = fetchDAIContract(signer);                                  
 
