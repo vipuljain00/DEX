@@ -59,7 +59,7 @@ export const connectingWithVipToken = async()=>{
         
         const web3modal = new Web3Modal();
         const connection = await web3modal.connect();
-        const provider = new ethers.BrowserProvider(connection);
+        const provider = new ethers.BrowserProvider(connection);                                //.providers.Web3Provider chnged to BrowserProvider in latest version of Ether
         const signer = provider.getSigner();
         const contract = fetchVIPContract(signer);
 
@@ -119,7 +119,7 @@ export const fetchMultiHopContract = (signerorProvider)=>{
     return new ethers.Contract(SwapMultiHopAddress, SwapMultiHopABI, signerorProvider);
 } 
 
-//Connecting with LIFE Token contract
+//Connecting with MultiHOp contract
 export const connectingWithMultiHop = async()=>{
     try {
         
@@ -141,7 +141,7 @@ export const fetchIWETHContract = (signerorProvider)=>{
     return new ethers.Contract(IWETHAddress, IWETHABI, signerorProvider);
 } 
 
-//Connecting with LIFE Token contract
+//Connecting with IWETH contract
 export const connectingWithIWETH = async()=>{
     try {
         
@@ -164,7 +164,7 @@ export const fetchDAIContract = (signerorProvider)=>{
     return new ethers.Contract(DAIAddress, IERC20ABI, signerorProvider);
 } 
 
-//Connecting with LIFE Token contract
+//Connecting with DAI contract
 export const connectingWithDAI = async()=>{
     try {
         
