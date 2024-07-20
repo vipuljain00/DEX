@@ -1,5 +1,5 @@
 import react , { useState, useEffect } from "react";
-import { ethers } from 'ethers';
+import { ethers } from "ethers";
 import Web3Modal from "web3modal";
 
 import { 
@@ -13,7 +13,17 @@ import {
     connectingWithDAI
 } from "../Utils/apiFeature" ;
 
-import { ERC20ABI, IWETHABI } from "./constants";
+import {
+    VipTokenAddress,
+    VipTokenABI,
+    VipTokenName,
+    LifeTokenAddress,
+    LifeTokenABI,
+    WETHAddress,
+    IWETHABI,
+    ERC20ABI,
+    // IERC20ABI
+} from "./constants";
 import React from "react";
 
 
@@ -33,9 +43,9 @@ export const SwapTokenContextProvider = ({children})=>{
     const [tokenData, setTokenData] = useState([]);
    
     const addToken = [
-        "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",   //WETH
-        "0x06786bCbc114bbfa670E30A1AC35dFd1310Be82f",   //VIP
-        "0x72F853E9E202600c5017B5A060168603c3ed7368",   //LIF
+        {name: "WETH", address: WETHAddress, abi: ERC20ABI},   //WETH
+        {name: "VIP", address: VipTokenAddress, abi: ERC20ABI},   //VIP
+        {name: "LIF", address: LifeTokenAddress, abi: ERC20ABI},   //LIF
     ];
 
     
@@ -51,6 +61,7 @@ export const SwapTokenContextProvider = ({children})=>{
             const web3modal = new Web3Modal();
             const connection = await web3modal.connect();
             const provider = new ethers.BrowserProvider(connection);
+            const signer = await provider.getSigner();
 
             //CHECK BALANCE
             const balance = await provider.getBalance(userAccount);
@@ -61,15 +72,19 @@ export const SwapTokenContextProvider = ({children})=>{
             
             addToken.map(async(el, i)=>{
                 //GETTING CONTRACT
-                const contract = new ethers.Contract(el, ERC20ABI, provider);                              //using IERC20ABI coz it has functions for getting name and symbol             
-                // const _userBalance = await contract.balanceOf(userAccount);                                 //balanceOf method is a part of IERC20 interface
-                // const userBlanace = ethers.formatEther(_userBalance);
-                console.log(`Contract ${i} :`, contract);    
-                // console.log(`userBalance for contract ${i} : `, userBlanace);                            
+                const contract = new ethers.Contract(el.address, el.abi, provider);                              //using ERC20ABI coz it has functions for getting name and symbol             
+                console.log(`Contract ${el.name} :`, contract);
+                try{
+                    const _userBalance = await contract.balanceOf(userAccount);                                 //balanceOf method is a part of ERC20 
+                    const userBlanace = ethers.formatEther(_userBalance);    
+                    console.log(`userBalance for contract ${el.name} : `, userBlanace);    
+                }catch(error){
+                    console.error(error);
+                }                         
             });
 
         }catch (error) {
-            console.error(error);          
+            console.error(error);
         }
     }
 
