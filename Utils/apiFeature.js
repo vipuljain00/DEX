@@ -10,9 +10,10 @@ import{
     SingleSwapTokenABI,
     SwapMultiHopAddress,
     SwapMultiHopABI,
-    IWETHAddress,
+    WETHAddress,
     IWETHABI,
-    IERC20ABI
+    ERC20ABI,
+    DAIAddress,                             //for Local Devlopment
 } from "../Context/constants"
 
 
@@ -138,7 +139,7 @@ export const connectingWithMultiHop = async()=>{
 
 //IWETH Token Fetching
 export const fetchIWETHContract = (signerorProvider)=>{
-    return new ethers.Contract(IWETHAddress, IWETHABI, signerorProvider);
+    return new ethers.Contract(WETHAddress, IWETHABI, signerorProvider);
 } 
 
 //Connecting with IWETH contract
@@ -148,8 +149,9 @@ export const connectingWithIWETH = async()=>{
         const web3modal = new Web3Modal();                                             
         const connection = await web3modal.connect();                                
         const provider = new ethers.BrowserProvider(connection);                 
-        const signer = provider.getSigner();                                           
-        const contract = fetchIWETHContract(signer);                                  
+        const signer = await provider.getSigner();                                           
+        const contract = fetchIWETHContract(signer);  
+        return contract                                
 
     } catch (error) {
         console.log(error);
@@ -159,20 +161,21 @@ export const connectingWithIWETH = async()=>{
 
 
 //DAI Token Fetching
-const DAIAddress = "0x6B175474E89094C44Da98b954EedeAC495271d0F";
+// const DAIAddress = "0x6B175474E89094C44Da98b954EedeAC495271d0F";
 export const fetchDAIContract = (signerorProvider)=>{
-    return new ethers.Contract(DAIAddress, IERC20ABI, signerorProvider);
+    return new ethers.Contract(DAIAddress, ERC20ABI, signerorProvider);
 } 
 
 //Connecting with DAI contract
 export const connectingWithDAI = async()=>{
     try {
         
-        const web3modal = new Web3Modal();                                             
-        const connection = await web3modal.connect();                                
+        const web3modal = new Web3Modal();                                          
+        const connection = await web3modal.connect();               
         const provider = new ethers.BrowserProvider(connection);                 
-        const signer = provider.getSigner();                                           
-        const contract = fetchDAIContract(signer);                                  
+        const signer = await provider.getSigner();                                          
+        const contract = fetchDAIContract(signer);   
+        return contract;                              
 
     } catch (error) {
         console.log(error);

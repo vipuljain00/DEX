@@ -1,7 +1,8 @@
-VIP token deployed to 0x06786bCbc114bbfa670E30A1AC35dFd1310Be82f
-LIF token deployed to 0x72F853E9E202600c5017B5A060168603c3ed7368
-Single_Swap deployed to 0x82Bd83ec6D4bCC8EaB6F6cF7565efE1e41D92Ce5
-Multihop_Swap deployed to 0xD61210E756f7D71Cc4F74abF0747D65Ea9d7525b
+VIP token deployed to 0x72F853E9E202600c5017B5A060168603c3ed7368
+LIF token deployed to 0x82Bd83ec6D4bCC8EaB6F6cF7565efE1e41D92Ce5
+Dai token deployed to 0xD61210E756f7D71Cc4F74abF0747D65Ea9d7525b
+Single_Swap deployed to 0x7aB5cEee0Ff304b053CE1F67d84C33F0ff407a55
+Multihop_Swap deployed to 0x26Df0Ea798971A97Ae121514B32999DfDb220e1f
 
 // "dependencies": {
 //     "@openzeppelin/contracts": "^5.0.2",

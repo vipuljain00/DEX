@@ -55,33 +55,77 @@ export const SwapTokenContextProvider = ({children})=>{
             //GET USER ACCOUNT
             const userAccount = await checkIfWalletConnected();
             setAccount(userAccount);
-            console.log("userAccount: ", userAccount);
+            console.log("userAccount: ", userAccount);                      //OK
 
             //CREATE PROVIDER
             const web3modal = new Web3Modal();
             const connection = await web3modal.connect();
             const provider = new ethers.BrowserProvider(connection);
-            const signer = await provider.getSigner();
+            // const signer = await provider.getSigner();
 
             //CHECK BALANCE
             const balance = await provider.getBalance(userAccount);
             const balanceInEther = ethers.formatEther(balance);
-            console.log("Balance: ", balanceInEther);
+            console.log("Balance: ", balanceInEther);                       //OK
            
             //All Token Balance and Data
-            
             addToken.map(async(el, i)=>{
+
                 //GETTING CONTRACT
                 const contract = new ethers.Contract(el.address, el.abi, provider);                              //using ERC20ABI coz it has functions for getting name and symbol             
-                console.log(`Contract ${el.name} :`, contract);
-                try{
-                    const _userBalance = await contract.balanceOf(userAccount);                                 //balanceOf method is a part of ERC20 
-                    const userBlanace = ethers.formatEther(_userBalance);    
-                    console.log(`userBalance for contract ${el.name} : `, userBlanace);    
-                }catch(error){
-                    console.error(error);
-                }                         
+                console.log(`Contract ${el.name} :`, contract);             //OK
+
+                //GETTING BALANCE OF TOKENS USING THEIR CONTRACT
+                const _userBalance = await contract.balanceOf(userAccount);                                 //balanceOf method is a part of ERC20 
+                const userBalanace = ethers.formatEther(_userBalance);    
+                console.log(`userBalance for contract ${el.name} : `, userBalanace);    //OK
+                  
+                //GET NAME AND SYMBOL
+                const symbol = await contract.symbol();
+                const name = await contract.name();
+                tokenData.push({
+                    name: name,
+                    symbol: symbol,
+                    tokenBalance: userBalanace,
+                })
             });
+            console.log(tokenData);                                         //OK
+            // setTokenData([]);
+
+            //DAI and WETH Balance
+            try {
+                //DAI BALANCE
+                const daiContract = await connectingWithDAI();
+                console.log(daiContract);                                       
+                if (!daiContract) {
+                    throw new Error("DAI contract instance is not available.");
+                }
+                if (!ethers.isAddress(userAccount)) {
+                    throw new Error("Invalid address provided.");
+                }
+                const daiBal = await daiContract.balanceOf(userAccount);
+                const daiBalance = ethers.formatEther(daiBal);
+                console.log(`DAI Balance : ${daiBalance}`);
+
+            
+                //WETH BALANCE
+                const wethContract = await connectingWithIWETH();
+                console.log(wethContract);
+                if (!wethContract) {
+                    throw new Error("WETH contract instance is not available.");
+                }
+                if (!ethers.isAddress(userAccount)) {
+                    throw new Error("Invalid address provided.");
+                }
+
+                const wethBal = await wethContract.balanceOf(userAccount);
+                const wethBalance = ethers.formatEther(wethBal);
+                console.log(`WETH Balance : ${wethBalance}`);
+
+            } catch (error) {
+                console.error(error);                
+            }
+
 
         }catch (error) {
             console.error(error);
