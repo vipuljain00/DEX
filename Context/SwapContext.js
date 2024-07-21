@@ -33,8 +33,6 @@ export const SwapTokenContext = React.createContext();
 
 export const SwapTokenContextProvider = ({children})=>{
 
-    const swap = "Welcome to swap my token";
-
     const [account, setAccount] = useState('');
     const [ether, setEther] = useState("");
     const [networkConnect, setNetworkConnect] = useState('');
@@ -68,6 +66,11 @@ export const SwapTokenContextProvider = ({children})=>{
             const balanceInEther = ethers.formatEther(balance);
             console.log("Balance: ", balanceInEther);                       //OK
            
+            //GET NETWORK NAME
+            const network = await provider.getNetwork();
+            setNetworkConnect(network.name);
+            console.log("Network : ", network);
+
             //All Token Balance and Data
             addToken.map(async(el, i)=>{
 
@@ -83,11 +86,14 @@ export const SwapTokenContextProvider = ({children})=>{
                 //GET NAME AND SYMBOL
                 const symbol = await contract.symbol();
                 const name = await contract.name();
-                tokenData.push({
-                    name: name,
-                    symbol: symbol,
-                    tokenBalance: userBalanace,
-                })
+
+                if(userBalanace !== "0.0"){
+                    tokenData.push({
+                        name: name,
+                        symbol: symbol,
+                        tokenBalance: userBalanace,
+                    });
+                }
             });
             console.log(tokenData);                                         //OK
             // setTokenData([]);
@@ -106,6 +112,7 @@ export const SwapTokenContextProvider = ({children})=>{
                 const daiBal = await daiContract.balanceOf(userAccount);
                 const daiBalance = ethers.formatEther(daiBal);
                 console.log(`DAI Balance : ${daiBalance}`);
+                setDai(daiBalance);
 
             
                 //WETH BALANCE
@@ -121,6 +128,7 @@ export const SwapTokenContextProvider = ({children})=>{
                 const wethBal = await wethContract.balanceOf(userAccount);
                 const wethBalance = ethers.formatEther(wethBal);
                 console.log(`WETH Balance : ${wethBalance}`);
+                setWeth9(wethBalance);
 
             } catch (error) {
                 console.error(error);                
@@ -140,7 +148,7 @@ export const SwapTokenContextProvider = ({children})=>{
 
 
     return(
-        <SwapTokenContext.Provider value={{swap}}>
+        <SwapTokenContext.Provider value={{ account, weth9, dai, networkConnect, ether, connectWallet, tokenData }}>
             {children}
         </SwapTokenContext.Provider>
     );

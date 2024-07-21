@@ -6,7 +6,7 @@ import { IMAGES_MANIFEST } from 'next/dist/shared/lib/constants'
 
 const TokenList = ({tokenData, setOpenTokenBox}) => {
 
-  const Data = [1, 2, 3, 4, 5, 6, 7]
+  // const Data = [1, 2, 3, 4, 5, 6, 7]
 
   return (
     <div className={style.TokenList_Holder}>
@@ -18,11 +18,11 @@ const TokenList = ({tokenData, setOpenTokenBox}) => {
         </div>
 
 
-        {Data.map((ele, i)=>(
+        {tokenData.map((ele, i)=>(
           <div className={style.TokenList_box}>
             <div className={style.TokenList_box_info}>
-              <p className={style.TokenList_box_info_symbol}>MSN</p>
-              <p><span>20</span> Meson Coin</p>
+              <p className={style.TokenList_box_info_symbol}>{ele.name}</p>
+              <p><span>{ele.tokenBalance}</span>{ele.symbol}</p>
             </div>
           </div>
         ))}
