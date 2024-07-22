@@ -21,8 +21,8 @@ const TokenList = ({tokenData, setOpenTokenBox}) => {
         {tokenData.map((ele, i)=>(
           <div className={style.TokenList_box}>
             <div className={style.TokenList_box_info}>
-              <p className={style.TokenList_box_info_symbol}>{ele.name}</p>
-              <p><span>{ele.tokenBalance}</span>{ele.symbol}</p>
+              <p className={style.TokenList_box_info_symbol}>{ele.symbol}</p>
+              <p><span>{ele.tokenBalance}</span>{ele.name}</p>
             </div>
           </div>
         ))}

@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol" ;
 
 contract VipToken is ERC20 {
 
-    constructor() ERC20("VIP", "Vip"){
+    constructor() ERC20("Vip", "VIP"){
         _mint(msg.sender, 100000  * 10 ** decimals());
     }
 } 

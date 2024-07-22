@@ -105,8 +105,9 @@ export const connectingWithSingleSwap = async()=>{
         const web3modal = new Web3Modal();                                             
         const connection = await web3modal.connect();                                
         const provider = new ethers.BrowserProvider(connection);                 
-        const signer = provider.getSigner();                                           
-        const contract = fetchSingleSwapContract(signer);                                  
+        const signer = await provider.getSigner();                                           
+        const contract = fetchSingleSwapContract(signer);  
+        return contract;                                
 
     } catch (error) {
         console.log(error);
