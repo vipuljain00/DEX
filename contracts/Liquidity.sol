@@ -72,7 +72,7 @@ contract LiquidityExamples is IERC721Receiver {
 
        tokenId = _tokenId;
     }
-
+    //This function creates Liquidity
     function mintNewPosition() external returns(uint _tokenId, uint128 liquidity, uint amount0) {
 
         //For this example, we will provide equal amounts of liquidity in both asstes.
@@ -137,7 +137,7 @@ contract LiquidityExamples is IERC721Receiver {
             TransferHelper.safeTransfer(USDC, msg.sender, refund1);
         }
     }
-
+    //This function will collect the fees
     function collectAllFees() external return (uint256 amount0, uint256 amount1){
         // set amount0Max and amount1MAx to uint256.max to collect all fees
         // alternatively can set recipient to msg.sender and avoid another transaction in 
