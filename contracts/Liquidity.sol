@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-2.0-or-Later
-pragma solidity ^0.8.24;
+pragma solidity >=0.7.6 < 0.9.0;
 pragma abicoder v2;
 
 import "@uniswap/v3-core/contracts/interfaces/IUniswapV3Pool.sol";
@@ -28,7 +28,7 @@ contract LiquidityExamples is IERC721Receiver {
     }
 
     ///@dev deposits[tokenId] => Deposit
-    mapping(uint = > Deposit) punblic deposits;
+    mapping(uint => Deposit) public deposits;
 
     // Store token id used in this example
     uint public tokenId;
@@ -36,12 +36,12 @@ contract LiquidityExamples is IERC721Receiver {
     // Implementing 'onERC721Received' so this contract can receive custody of erc721 token
     function onERC721Received(
         address operator,
-        address,
+        address ,
         uint _tokenId,
-        bytes calldata
+        bytes calldata 
         ) external override returns (bytes4) {
         _createDeposit(operator, _tokenId);
-        return this.onERC721Receiver.selector;
+        return this.onERC721Received.selector;
     }
 
     function _createDeposit(address owner, uint _tokenId) internal {
@@ -62,7 +62,7 @@ contract LiquidityExamples is IERC721Receiver {
        //operator is msg.sender
        deposits[_tokenId] = Deposit({
         owner: owner,
-        liquidity: liquidity,
+        liquidity: uint128(liquidity),
         token0: token0,
         token1: token1
        });
@@ -73,7 +73,7 @@ contract LiquidityExamples is IERC721Receiver {
        tokenId = _tokenId;
     }
     //This function creates Liquidity
-    function mintNewPosition() external returns(uint _tokenId, uint128 liquidity, uint amount0) {
+    function mintNewPosition() external returns(uint _tokenId, uint128 liquidity, uint amount0, uint amount1) {
 
         //For this example, we will provide equal amounts of liquidity in both asstes.
         //Providing Liquidity in both assets means Liqidity will be earning fees and is in-range
@@ -88,11 +88,12 @@ contract LiquidityExamples is IERC721Receiver {
         );
         TransferHelper.safeApprove(
             USDC,
-            address(nonFungiblePositionManager);
+            address(nonFungiblePositionManager),
             amount1ToMint
-        )
+        );
 
-        INonfungiblePositionManager.MintParams memory params = INonfungiblePositionManager.MintParams({
+        INonfungiblePositionManager.MintParams 
+            memory params = INonfungiblePositionManager.MintParams({
             token0: DAI,
             token1: USDC,
             fee: poolFee,
@@ -108,7 +109,7 @@ contract LiquidityExamples is IERC721Receiver {
             recipient: address(this),
             deadline: block.timestamp
         });
-
+  
         // Note that the pool defined by DAI/USDC and fee tier 0.01% must
         // already be created and initialized in order to mint
         (_tokenId, liquidity, amount0, amount1) = nonFungiblePositionManager.mint(params);
@@ -138,12 +139,12 @@ contract LiquidityExamples is IERC721Receiver {
         }
     }
     //This function will collect the fees
-    function collectAllFees() external return (uint256 amount0, uint256 amount1){
+    function collectAllFees() external returns(uint256 amount0, uint256 amount1){
         // set amount0Max and amount1MAx to uint256.max to collect all fees
         // alternatively can set recipient to msg.sender and avoid another transaction in 
         // `sendToOwner`
         INonfungiblePositionManager.CollectParams memory params = INonfungiblePositionManager.CollectParams({
-            tokenID: tokenID,
+            tokenId: tokenId,
             recipient: address(this),
             amount0Max: type(uint128).max,
             amount1Max: type(uint128).max
@@ -164,7 +165,7 @@ contract LiquidityExamples is IERC721Receiver {
         TransferHelper.safeApprove(USDC, address(nonFungiblePositionManager), amountAdd1);
 
         INonfungiblePositionManager.IncreaseLiquidityParams memory params = INonfungiblePositionManager.IncreaseLiquidityParams({
-            tokenId: tokenID,
+            tokenId: tokenId,
             amount0Desired: amountAdd0,
             amount1Desired: amountAdd1,
             amount0Min: 0,
@@ -198,8 +199,8 @@ contract LiquidityExamples is IERC721Receiver {
 
     function decreaseLiquidity(uint128 liquidity) external returns(uint amount0, uint amount1){
         INonfungiblePositionManager.DecreaseLiquidityParams memory params = INonfungiblePositionManager.DecreaseLiquidityParams({
-            tokenID: tokenId,
-            liquidity: liquidity,
+            tokenId: tokenId,
+            liquidity: uint128(liquidity),
             amount0Min: 0,
             amount1Min: 0,
             deadline: block.timestamp
@@ -209,5 +210,5 @@ contract LiquidityExamples is IERC721Receiver {
 
         console.log("amount0: ", amount0);
         console.log("amount1: ", amount1);
-    })
+    }
 }
