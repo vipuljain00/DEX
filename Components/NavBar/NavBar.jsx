@@ -19,7 +19,7 @@ const NavBar = () => {
     },
     {
       name: "Tokens",
-      link: "/"
+      link: "/Tokens"
     },
     {
       name: "Pools",

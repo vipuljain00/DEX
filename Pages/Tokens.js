@@ -21,7 +21,7 @@ const Tokens = ()=>{
             number: 2,
             image: images.etherlogo,
             name: "USDC Coin",
-            symbol: "USDc",
+            symbol: "USDC",
             price: "$12,546",
             change: "+ 2956.6",
             tvl: "$16195.6 M",
@@ -54,14 +54,17 @@ const Tokens = ()=>{
     const[searchItem, setSearchItem] = useState(search);
 
     const onHandleSearch = (value)=>{
-        const filteredToken = allTokenList.filter(({name})=>{
-            name.toLowerCase().includes(value.toLowerCase()) 
-        });
+        const filteredToken = allTokenList.filter((i) => 
+            i.name.toLowerCase().includes(value.toLowerCase())
+        );
+        // console.log("filtered: ", filteredToken);
 
         if(filteredToken.length === 0){
             setAllTokenList(copyAllTokenList);
+            console.log(allTokenList);
         } else{
             setAllTokenList(filteredToken);
+            console.log(allTokenList);
         }  
     };
 
@@ -122,6 +125,8 @@ const Tokens = ()=>{
                 <AllTokens allTokenList={allTokenList} />
             </div>
         </div>
-    )
+    );
 
-}
+};
+
+export default Tokens;

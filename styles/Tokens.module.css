@@ -1,0 +1,74 @@
+.Tokens{
+    margin-block: 5rem auto;
+    margin-top: 7rem;
+    /* border: 1px solid yellow; */
+}
+.Tokens_box{
+    /* border: 1px solid yellow; */
+    width: 60%;
+    margin: 0 auto;
+}
+.Tokens_box h2{
+    font-size: 2rem;
+    font-weight: 400;
+}
+.Tokens_box_header{
+    /* border: 1px solid yellow; */
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+.Tokens_box_header_ethereum{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    border: 1px #6690FF53 solid;
+    border-radius: 0.5rem;
+    padding: 0 2rem;
+    color: #6690FF;
+    background-color: #1e1e1e;
+    line-height: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    align-content: center;
+}
+.Tokens_box_header_search{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    border: 1px #6690FF53 solid;
+    border-radius: 0.5rem;
+    padding: 0.2rem 2rem;
+    background-color: #1e1e1e;
+    line-height: 0;
+    width: 50%;
+    align-items: center;
+}
+.Tokens_box_header_search input{
+    outline: none;
+    background-color: transparent;
+    border: none;
+    color: #6690FF;
+    width: 90%;
+}
+@media only screen and (max-width: 35em) {
+    .Tokens_box{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .Tokens_box_header{
+        display: grid;
+    }
+    .Tokens_box_header_ethereum{
+        width: 70%;
+        font-weight: 500;
+    }
+    .Tokens_box_header_search{
+        padding: 0.5rem 2rem;
+        width: 70%;
+    }
+    .Tokens_box h2{
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+}
