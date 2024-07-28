@@ -15,15 +15,15 @@ const NavBar = () => {
   const menuItems = [
     {
       name: "Swap",
-      link: "/"
+      link: "/index"
     },
     {
       name: "Tokens",
       link: "/Tokens"
     },
     {
-      name: "Pools",
-      link: "/Pool"
+      name: "Pool",
+      link: "/Pools"
     }]
 
   const [openModel, setOpenModel] = useState(false);
@@ -47,7 +47,8 @@ const NavBar = () => {
           {/* Menu Items */}
           <div className={style.NavBar_Box_left_menu}>
             {menuItems.map((ele, i)=>(
-              <Link key = {i+1} href = { {pathname: `${ele.name}`, query: `${ele.link}`} }>
+              <Link key = {i+1} href = { {pathname: `${ele.name}`, query: `${ele.link}`} }>        
+              {/* //pathname should match to file in pages directory */}
                 <p className={style.NavBar_Box_left_menu_item}>{ele.name}</p>
               </Link>
             ))}
