@@ -1,32 +1,32 @@
 .SearchToken{
     /* border: solid 1px yellow; */
-    border-radius: .5rem;
+    border-radius: .5em;
     position: absolute;
     width: 90%;
-    padding-top: 5.25rem;
+    padding-top: 5.25em;
     text-align: center;
     display: flex;
     justify-content: center;
 }
 .SearchToken_Box{
     /* border: solid 1px yellow; */
-    border-radius: .5rem;
+    border-radius: .5em;
     /* position: absolute; */
-    /* width: 3rem; */
-    height: 20rem;
+    /* width: 3em; */
+    height: 20em;
     background-color: #1e1e1e;
-    padding: 1rem 1rem 1rem 1rem;
+    padding: 1em 1em 1em 1em;
 }
 .SearchToken_Box_heading{
     /* border: solid 1px yellow; */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: .5rem auto;
+    padding: .5em auto;
 }
 .SearchToken_Box_heading  h4{
     /* border: solid 1px yellow; */
-    font-size: 1.25rem;
+    font-size: 1.25em;
     font-weight: 400;
     line-height: 0;
 }
@@ -35,47 +35,47 @@
 }
 .SearchToken_Box_search{
     border: solid 1px #6690ff;
-    border-radius: .5rem;
-    margin: 1rem auto;
+    border-radius: .5em;
+    margin: 1em auto;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1em;
 }
 .SearchToken_Box_search_img{
     display: flex;
     align-items: center;
-    padding-left: 1rem;
+    padding-left: 1em;
 }
 .SearchToken_Box_search input{
     background-color: transparent;
     border: 0;
-    border-radius: .5rem;
+    border-radius: .5em;
     outline: 0;
     width: 80%;
-    padding: 1rem;
+    padding: 1em;
     color: #6690ff;
     font-weight: 80;
 }
 .SearchToken_Box_tokens{
-    border: solid 1px yellow;
-    border-radius: .5rem;
+    /* border: solid 1px yellow; */
+    border-radius: .5em;
     background-color: #212324;
-    margin-top: 1rem;
-    padding: .5rem .5rem;
+    margin-top: 1em;
+    padding: .5em .5em;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 
 }
 .SearchToken_Box_tokens span{
     /* border: solid 1px yellow; */
-    border-radius: 0.8rem;
+    border-radius: 0.8em;
     border: solid 1px #6690ff;
-    padding: .5rem;
-    margin: .5rem;
+    padding: .5em;
+    margin: .5em;
     display: flex;
     align-items: center;
-    gap: .7rem;
-    width: 5.7rem;
+    gap: .7em;
+    width: 5.7em;
     line-height: 0;
     cursor: pointer;
 }
@@ -87,10 +87,11 @@
 @media only screen and (max-width: 35em) {
     .SearchToken{
         /* border: solid 1px yellow; */
-        width: 85%;
+        width: 90%;
+        z-index: 111111111;
     }
     .SearchToken_Box{
-        width: 100%;
+        /* width: 100%; */
     }
     .SearchToken_Box_tokens{
         display: flex;

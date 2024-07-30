@@ -11,7 +11,7 @@ const PoolAdd = () => {
   const[openModel, setOpenModel] = useState(false);
   const[openTokenModel, setOpenTokenModel] = useState(false);
   const[active, setActive] = useState(1);
-  const[openFee, setOpenFee] = useState(false);
+  const[openFee, setOpenFee] = useState(true);
   const[minPrice,setMinPrice] = useState(0);
   const[maxPrice, setMaxPrice] = useState(0);
   const feePairs = [
@@ -62,6 +62,7 @@ const PoolAdd = () => {
           </div>
         {/* HEADER-RIGHT */}
           <div className={style.PoolAdd_box_header_right}>
+            <p>Clear All</p>
             <Image src={images.close} alt='img' width={50} height={50} 
               onClick={()=>{setOpenModel(true)}}
             />
@@ -73,9 +74,9 @@ const PoolAdd = () => {
           <div className={style.PoolAdd_box_price_left}>
             <h4>Select Pair</h4>
             {/* TOKEN */}
-            <div className={style.PoolAdd_box_header_left_token}>
+            <div className={style.PoolAdd_box_price_left_token}>
               {/* TOKEN-LEFT */}
-              <div className={style.PoolAdd_box_price_left_token_input}>
+              <div className={style.PoolAdd_box_price_left_token_info}>
                 <p>
                   <Image src={images.etherlogo} alt='img' width={20} height={20}/>
                 </p>
@@ -84,7 +85,7 @@ const PoolAdd = () => {
               </div>
               {/* TOKEN_RIGHT */}
               <div className={style.PoolAdd_box_price_left_token_info}
-                onClick={()=>setOpenTokenModel(true)}>
+                onClick={()=>setOpenTokenModel(!openTokenModel)}>
                 <p>
                   <Image src={images.etherlogo} alt='img' width={20} height={20} />
                 </p>
@@ -92,7 +93,7 @@ const PoolAdd = () => {
                 <p><Image src={images.arrowPrice} alt='img' width={20} height={20} /></p>
               </div>
             </div>
-
+            {/* FEE */}
             <div className={style.PoolAdd_box_price_left_fee}>
               <div className={style.PoolAdd_box_price_left_fee_left}>
                 <h4>Fee Tier</h4>
@@ -114,7 +115,7 @@ const PoolAdd = () => {
                     key={i+1}
                     onClick={()=>setActive(i+1)} >
 
-                    <div className={style.PoolAdd_box_price_left_list_item}>
+                    <div className={style.PoolAdd_box_price_left_list_info}>
                       <p>{el.fee}</p>
                       <p>
                         {active == i+1 ? (
@@ -139,22 +140,22 @@ const PoolAdd = () => {
               <h4>Deposit Amount</h4>
               <div className={style.PoolAdd_box_price_left_deposit_box}>
                 <input type='text' placeholder='0' />
-                <div className={style.PoolAdd_box_price_left_deposit_box_input}>
+                <div className={style.PoolAdd_box_price_left_deposit_box_info}>
                   <p>
                     <small>UNI</small> Uniswap
                   </p>
-                  <p className={style.PoolAdd_box_price_left_deposit_box_input_item}>
+                  <p className={style.PoolAdd_box_price_left_deposit_box_info_balance}>
                     Balance: 0.00
                   </p>
                 </div>    
               </div>
               <div className={style.PoolAdd_box_price_left_deposit_box}>
                 <input type='text' placeholder='0' />
-                <div className={style.PoolAdd_box_price_left_deposit_box_input}>
+                <div className={style.PoolAdd_box_price_left_deposit_box_info}>
                   <p>
                     <small>ETH</small> Ether
                   </p>
-                  <p className={style.PoolAdd_box_price_left_deposit_box_input_item}>
+                  <p className={style.PoolAdd_box_price_left_deposit_box_info_balance}>
                     Balance: 0.00
                   </p>
                 </div>    
@@ -181,7 +182,7 @@ const PoolAdd = () => {
                 <p 
                   className={style.PoolAdd_box_header_right_range_box_para}
                   onClick={(e)=>minPriceRange(e.target.innerText)}>
-                    <smal>-</smal> {minPrice} <small>+</small>
+                    <small>-</small> {minPrice} <small>+</small>
                 </p>
                 <p>Testv4 per WETh</p>
               </div>
@@ -190,7 +191,7 @@ const PoolAdd = () => {
                 <p 
                   className={style.PoolAdd_box_header_right_range_box_para}
                   onClick={(e)=>maxPriceRange(e.target.innerText)}>
-                    <smal>-</smal> {maxPrice} <small>+</small>
+                    <small>-</small> {maxPrice} <small>+</small>
                 </p>
                 <p>Testv4 per WETh</p>
               </div>
@@ -215,7 +216,7 @@ const PoolAdd = () => {
       )}
     
       {openTokenModel && (
-        <div className={style.token}>
+        <div className={style.searchtoken}>
           <SearchToken tokenData="hey" openToken={setOpenTokenModel} />
         </div>
       )}

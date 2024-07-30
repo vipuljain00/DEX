@@ -1,0 +1,230 @@
+.PoolAdd_box{
+    background-color: #1e1e1e;
+    border-radius: .5em;
+    padding: 1em;
+}
+.PoolAdd_box_header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* color: #6690ff; */
+    font-size: 1.3em;
+}
+.PoolAdd_box_header_right{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    color: #6690ff;
+    cursor: pointer;
+}
+.PoolAdd_box_price{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* border: 1px solid #6690ff; */
+    /* background-color: #1e1e1e; */
+    padding: 1em;
+    gap: 2em;
+}
+.PoolAdd_box_price_left_token{
+    /* border: 1px solid #6690ff; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+}
+.PoolAdd_box_price_left_token_info{
+    border: 1px solid #6690ff;
+    border-radius: .5em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    background-color: #6690ff20;
+    /* color: ; */
+    padding: 0 2em;
+    font-weight: 700;
+    cursor: pointer;
+}
+.PoolAdd_box_price_left_fee{
+    border: 1px solid #6690ff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1em;
+    border-radius: .5em;
+    padding: .5em 1em;
+}
+.PoolAdd_box_price_left_fee p{
+    font-size: .8em;
+}
+.PoolAdd_box_price_left_fee button{
+    background-color: #6690ff;
+    border: none;
+    border-radius: .5em;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    font-weight: 700;
+}
+.PoolAdd_box_price_left_list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+    margin-top: 1em;
+}
+.PoolAdd_box_price_left_list_items{
+    /* background-color: #6690ff; */
+    border: 1px solid #6690ff;
+    border-radius: .5em;
+    padding: 0.5em;
+    color: #6690ff;
+    font-weight: 700;
+    line-height: .8;
+    cursor: pointer;
+}
+.PoolAdd_box_price_left_list_info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.PoolAdd_box_price_left_list_item_para{
+    background-color: #6690ff;
+    color: #1e1e1e;
+    padding: .3em;
+    padding-left: .6em;
+    border-radius: .5em;
+}
+.PoolAdd_box_price_left_deposit h4{
+    /* border: 1px solid #6690ff; */
+}
+.PoolAdd_box_price_left_deposit_box{
+    border: 1px solid #6690ff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: .5em;
+    margin-top: 1em;
+}
+
+.PoolAdd_box_price_left_deposit_box input{
+    border: none;
+    width: 50%;
+    outline: none;
+    background-color: transparent;
+    color: #6690ff;
+    font-size: 1.5em;
+    margin-left: 2em;
+}
+.PoolAdd_box_price_left_deposit_box_info{
+    background-color: #6690ff;
+    color: #1e1e1e;
+    border-radius: .5rem .5rem;
+    padding: 0 1em;
+    font-size: 1.2em;
+    font-weight: 400;
+}
+.PoolAdd_box_price_left_deposit_box_info p{
+    /* border: 1px solid #1e1e1e; */
+    display: flex;
+    align-items: center;
+    gap: .6em;
+}
+.PoolAdd_box_price_left_deposit_box_info p small{
+    background-color: #1e1e1e;
+    color: #6690ff;
+    border-radius: .5em;
+    padding: .8em;
+    font-size: .8em;
+}
+.PoolAdd_box_price_left_deposit_box_info_balance{
+    font-size: .8em;
+    font-weight: 500;
+    margin-top: -.5em;
+    /* padding-left: 1.4em; */
+}
+.PoolAdd_box_price_right_box{
+    /* border: 1px solid #6690ff; */
+    text-align: center;
+    line-height: 1;
+    margin-top: 1em;
+}
+.PoolAdd_box_price_right_box_para{
+    /* border: 1px solid #6690ff; */
+    font-size: .9em;
+    margin-bottom: .5em;
+}
+.PoolAdd_box_header_right_range{
+    /* border: 1px solid #6690ff; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+}
+.PoolAdd_box_header_right_range_box{
+    border: 1px solid #6690ff;
+    padding: 0 1em;
+    text-align: center;
+    border-radius: .5em;
+    line-height: 1;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.PoolAdd_box_header_right_range_box_para small{
+    background-color: #6690ff;
+    color: #1e1e1e;
+    margin-inline: 1em;
+    font-size: 1.2em;
+    border-radius: .5em;
+    padding: 0.2em 0.5em;
+    cursor: pointer;
+}
+.PoolAdd_box_header_right_button, .PoolAdd_box_header_right_amount{
+    display: grid;
+    margin-top: 1em;
+}
+.PoolAdd_box_header_right_button button{
+    background-color: #6690ff;
+    border: none;
+    outline: none;
+    border-radius: .5em;
+    padding: .5em;
+    cursor: pointer;
+    font-weight: 700;
+}
+.PoolAdd_box_header_right_amount button{
+    background-color: #6690ff;
+    border: none;
+    outline: none;
+    border-radius: .5em;
+    padding: .5em;
+    font-weight: 700;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+.token{
+    position: absolute;
+    top: 0em;
+    right: 32em;
+}
+.searchtoken{
+    position: absolute;
+    top: 3em;
+    left: 50%;
+    /* transform: ; */
+    transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 35em){
+    .PoolAdd_box_price{
+        display: block;
+    }
+    .PoolAdd_box{
+        width: 100%;
+    }
+    .PoolAdd_box_header_right_range_box_para small{
+        margin-inline: 0rem;
+    }
+    .PoolAdd_box_price_left_token{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .PoolAdd_box_price_left_token_info{
+        width: 100%;
+    }
+}
