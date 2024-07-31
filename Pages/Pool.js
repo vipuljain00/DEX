@@ -9,7 +9,7 @@ const Pool = () => {
     return(
         <div className={style.Pool}>
             <PoolAdd />
-            {/* <PoolConnect /> */}
+            <PoolConnect />
         </div>
     );
 };

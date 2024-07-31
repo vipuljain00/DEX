@@ -11,7 +11,11 @@
   "dependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
     "@openzeppelin/contracts": "^3.4.2",
+    "@uniswap/sdk-core": "^5.3.1",
+    "@uniswap/smart-order-router": "^3.38.0",
     "@uniswap/v3-periphery": "^1.4.4",
+    "axios": "^1.7.2",
+    "dotenv": "^16.4.5",
     "ethers": "^6.13.1",
     "next": "14.2.4",
     "react": "^18",
